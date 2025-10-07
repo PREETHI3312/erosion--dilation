@@ -22,36 +22,30 @@ Dilate the image
 ``` 
 import cv2
 import numpy as np
-from matplotlib import pyplot as plt
-imput_image='actor.jpg'
-color_image=cv2.imread(imput_image)
-gray_image=cv2.cvtColor(color_image,cv2.COLOR_BGR2GRAY)
-edges=cv2.Canny(gray_image,100,200)
-kernel_size=5
-kernel=np.ones((kernel_size,kernel_size),np.uint8)
-erosion=cv2.erode(edges,kernel,iterations=1)
-dilation=cv2.dilate(edges,kernel,iterations=1)
-plt.figure(figsize=(15,10))
-plt.subplot(2,3,1)
-plt.imshow(cv2.cvtColor(color_image,cv2.COLOR_BGR2RGB))
-plt.title('Original Color Image')
-plt.axis('on')
-plt.subplot(2,3,2)
-plt.imshow(gray_image,cmap='gray')
-plt.title('black and white image')
-plt.axis('on')
-plt.subplot(2,3,3)
-plt.imshow(edges,cmap='gray')
-plt.title('edge segmentation')
-plt.axis('on')
-plt.subplot(2,3,4)
-plt.imshow(edges,cmap='gray')
-plt.title('erosion')
-plt.axis('on')
-plt.subplot(2,3,5)
-plt.imshow(edges,cmap='gray')
-plt.title('dilation')
-plt.axis('on')
+import matplotlib.pyplot as plt
+# Create a blank image
+image = np.zeros((500, 500, 3), dtype=np.uint8)
+# Add text on the image using cv2.putText
+font = cv2.FONT_HERSHEY_SIMPLEX
+cv2.putText(image, 'PREETHI A K', (100, 250), font, 1, (255, 255, 255), 2, cv2.LINE_AA)
+# Display the input image
+plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))  # Convert BGR to RGB for displaying
+plt.title("Input Image with Text")
+plt.axis('off')
+# Create a simple square kernel (3x3)
+kernel = np.ones((3, 3), np.uint8)
+# Apply erosion (shrinking effect)
+eroded_image = cv2.erode(image, kernel, iterations=1)
+# Display the eroded image
+plt.imshow(cv2.cvtColor(eroded_image, cv2.COLOR_BGR2RGB))  # Convert BGR to RGB
+plt.title("Eroded Image")
+plt.axis('off')
+# Apply dilation (expanding effect)
+dilated_image = cv2.dilate(image, kernel, iterations=1)
+# Display the dilated image
+plt.imshow(cv2.cvtColor(dilated_image, cv2.COLOR_BGR2RGB))  # Convert BGR to RGB
+plt.title("Dilated Image")
+plt.axis('off')
 
 ```
 ## Output:
@@ -62,11 +56,10 @@ plt.axis('on')
 
 ### Display the Eroded Image
 
-<img width="590" height="635" alt="image" src="https://github.com/user-attachments/assets/9e674cb6-1690-4c7b-a62d-819262af4c60" />
+<img width="465" height="481" alt="image" src="https://github.com/user-attachments/assets/bc16b3e9-2d92-4f3a-8335-d6b00b8bc042" />
 
 ### Display the Dilated Image
 
-<img width="588" height="622" alt="image" src="https://github.com/user-attachments/assets/833ff7a2-9831-41c5-b4c4-1dd4dd035e5e" />
 
 ## Result
 Thus the generated text image is eroded and dilated using python and OpenCV.
