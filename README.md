@@ -59,6 +59,8 @@ plt.axis('off')
 <img width="465" height="481" alt="image" src="https://github.com/user-attachments/assets/bc16b3e9-2d92-4f3a-8335-d6b00b8bc042" />
 
 ### Display the Dilated Image
+<img width="450" height="490" alt="image" src="https://github.com/user-attachments/assets/fbae813a-c0d1-4f55-aaa0-14f2e7fb6fb8" />
+
 
 
 ## Result
